@@ -1,3 +1,4 @@
+<!--
 {{ trans('texts.powered_by') }}
 
 {{-- Per our license, please do not remove or modify this section. --}}
@@ -15,6 +16,7 @@
 @else
   <a href="#" onclick="showWhiteLabelModal()">{{ trans('texts.white_label_link') }}</a>
 @endif
+-->
 
   <div class="modal fade" id="whiteLabelModal" tabindex="-1" role="dialog" aria-labelledby="whiteLabelModalLabel" aria-hidden="true">
     <div class="modal-dialog">
