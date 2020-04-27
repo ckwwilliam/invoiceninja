@@ -62,12 +62,14 @@ class StartupCheck
 
         if (Utils::isSelfHost()) {
             // Check if config:cache may have been run
+            /*
             if (! env('APP_URL')) {
                 echo "<p>There appears to be a problem with your configuration, please check your .env file.</p>" .
                      "<p>If you've run 'php artisan config:cache' you will need to run 'php artisan config:clear'</p>.";
                 exit;
             }
-
+            */
+            
             // Check if a new version was installed
             $file = storage_path() . '/version.txt';
             $version = @file_get_contents($file);
