@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{App::getLocale()}}">
   <head>
-    <title>Invoice Ninja | Setup</title>
+    <title>Straw Hat | Setup</title>
     <meta charset="utf-8">
     <meta name="csrf-token" content="<?= csrf_token() ?>">
     <script src="{{ asset('built.js') }}?no_cache={{ NINJA_VERSION }}" type="text/javascript"></script>
@@ -25,7 +25,7 @@
     <div class="col-md-8 col-md-offset-2">
 
     <div class="jumbotron">
-        <h2>Invoice Ninja Setup</h2>
+        <h2>Straw Hat Setup</h2>
         @if (version_compare(phpversion(), '7.0.0', '<'))
             <div class="alert alert-warning">Warning: The application requires PHP >= 7.0.0</div>
         @endif

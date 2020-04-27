@@ -9,7 +9,7 @@
             <table cellpadding="10" cellspacing="0" border="0" bgcolor="#2F2C2B" width="600" align="center" class="header">
                 <tr>
                     <td class="logo" style="border-collapse: collapse; vertical-align: middle; padding-left:34px; padding-top:20px; padding-bottom:12px" valign="middle">
-                        <img src="{{ isset($message) ? $message->embed(public_path('images/invoiceninja-logo.png')) : 'cid:invoiceninja-logo.png'  }}" alt="Invoice Ninja" />
+                        <img src="{{ isset($message) ? $message->embed(public_path('images/invoiceninja-logo.png')) : 'cid:invoiceninja-logo.png'  }}" alt="Straw Hat" />
                     </td>
                 </tr>
             </table>
@@ -32,7 +32,7 @@
     </p>
 
     <p style="color: #A7A6A6; font-size: 13px; line-height: 18px; margin: 0 0 7px; padding: 0;">
-        &#9400; {{ date('Y') }} Invoice Ninja<br />
+        &#9400; {{ date('Y') }} Straw Hat<br />
         <strong><a href="{{ URL::to('/settings/notifications') }}" style="color: #A7A6A6; text-decoration: none; font-weight: bold; font-size: 10px;">{{ strtoupper(trans('texts.email_preferences')) }}</a></strong>
     </p>
 @stop

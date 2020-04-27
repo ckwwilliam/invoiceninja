@@ -2,7 +2,7 @@
     {
         "@context":"http://schema.org",
         "@type":"EmailMessage",
-        "description":"Confirm your Invoice Ninja account",
+        "description":"Confirm your Straw Hat account",
         "action":
         {
             "@type":"ConfirmAction",
