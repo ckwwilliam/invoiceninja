@@ -83,11 +83,13 @@
                     {!! link_to('/recover_password', trans('texts.recover_password')) !!}
                 </div>
                 <div class="col-md-5 col-sm-12">
+                	<!-- 
                     @if (Utils::isTimeTracker())
                         {!! link_to('#', trans('texts.self_host_login'), ['onclick' => 'setSelfHostUrl()']) !!}
                     @else
                         {!! link_to(NINJA_WEB_URL.'/knowledge-base/', trans('texts.knowledge_base'), ['target' => '_blank']) !!}
                     @endif
+                    -->
                 </div>
             @endif
         </div>
