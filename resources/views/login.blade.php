@@ -19,7 +19,9 @@
         <div class="container-fluid">
             <div class="row header">
                 <div class="col-md-6 col-xs-12 text-center">
-                	<img width="231" src="{{ asset('images/straw-banner.png') }}"/>
+                	<a href="{{ URL::to('/') }}">
+                		<img width="231" src="{{ asset('images/straw-banner.png') }}"/>
+                	</a>
                 </div>
                 <div class="col-md-6 text-right visible-lg">
                     <p>{{trans('texts.ninja_tagline')}}</p>
