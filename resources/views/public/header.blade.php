@@ -74,8 +74,10 @@
                 </button>
                 @if (empty($account) || !$account->hasFeature(FEATURE_WHITE_LABEL))
                     {{-- Per our license, please do not remove or modify this link. --}}
+                    <!--  
                     <a class="navbar-brand" href="{{ URL::to(NINJA_WEB_URL) }}" target="_blank"><img
                                 src="{{ asset('images/invoiceninja-logo.png') }}" style="height:27px"></a>
+                    -->
                 @endif
             </div>
             <div id="navbar" class="collapse navbar-collapse">
@@ -162,6 +164,7 @@
     <div class="top">
         <div class="wrap">
             @if (empty($account) || !$account->hasFeature(FEATURE_WHITE_LABEL))
+            <!--  
             <div id="footer-menu" class="menu-wrap">
                 <ul id="menu-footer-menu" class="menu">
                     <li id="menu-item-31" class="menu-item-31">
@@ -178,6 +181,7 @@
                     </li>
                 </ul>
             </div>
+            -->
             @endif
         </div><!-- .wrap -->
     </div><!-- .top -->
@@ -185,7 +189,9 @@
     <div class="bottom">
         <div class="wrap">
             @if (empty($account) || !$account->hasFeature(FEATURE_WHITE_LABEL))
+            <!-- 
                 <div class="copy">Copyright &copy;{{ date('Y') }} <a href="{{ NINJA_WEB_URL }}" target="_blank">Straw Hat</a>. All rights reserved.</div>
+            -->
             @endif
         </div><!-- .wrap -->
     </div><!-- .bottom -->
