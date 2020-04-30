@@ -64,7 +64,7 @@
 @section('footer')
     <p style="color: #A7A6A6; font-size: 13px; line-height: 18px; margin: 0 0 7px; padding: 0;">
         @if (! $account->isPaid())
-            {!! trans('texts.ninja_email_footer', ['site' => link_to(NINJA_WEB_URL . '?utm_source=email_footer', APP_NAME)]) !!}
+            {!! trans('texts.ninja_email_footer', ['site' => link_to(SITE_URL . '?utm_source=email_footer', APP_NAME)]) !!}
         @else
             {{ $account->present()->address }}
             <br />
