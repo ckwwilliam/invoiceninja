@@ -37,7 +37,7 @@ class ExportController extends BaseController
 
         // set the filename based on the entity types selected
         if ($request->include == 'all') {
-            $fileName = "{$date}-strawhat";
+            $fileName = "{$date}-i-invoice";
         } else {
             $fields = $request->all();
             $fields = array_filter(array_map(function ($key) {
@@ -47,7 +47,7 @@ class ExportController extends BaseController
                     return null;
                 }
             }, array_keys($fields), $fields));
-            $fileName = $date. '-strawhat-' . implode('-', $fields);
+            $fileName = $date. '-i-invoice-' . implode('-', $fields);
         }
 
         if ($format === 'JSON') {

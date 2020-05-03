@@ -20,7 +20,7 @@
             <div class="row header">
                 <div class="col-md-6 col-xs-12 text-center">
                 	<a href="{{ URL::to('/') }}">
-                		<img width="231" src="{{ asset('images/straw-banner.png') }}"/>
+                		<img width="231" src="{{ asset('images/invoiceninja-logox53.png') }}"/>
                 	</a>
                 </div>
                 <div class="col-md-6 text-right visible-lg">

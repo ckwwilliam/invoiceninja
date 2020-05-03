@@ -36,7 +36,7 @@ class ExportReportResults extends Job
         $totals  = $params['reportTotals'];
         $report  = $params['report'];
 
-        $filename = "{$params['startDate']}-{$params['endDate']}_strawhat-".strtolower(Utils::normalizeChars(trans("texts.$reportType")))."-report";
+        $filename = "{$params['startDate']}-{$params['endDate']}_i-invoice-".strtolower(Utils::normalizeChars(trans("texts.$reportType")))."-report";
 
         $formats = ['csv', 'pdf', 'xlsx', 'zip'];
         if (! in_array($format, $formats)) {

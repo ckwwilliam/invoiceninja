@@ -2,7 +2,7 @@
     {
         "@context":"http://schema.org",
         "@type":"EmailMessage",
-        "description":"Confirm your Straw Hat account",
+        "description":"Confirm your i-invoice account",
         "action":
         {
             "@type":"ConfirmAction",

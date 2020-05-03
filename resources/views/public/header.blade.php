@@ -190,7 +190,7 @@
         <div class="wrap">
             @if (empty($account) || !$account->hasFeature(FEATURE_WHITE_LABEL))
             <!-- 
-                <div class="copy">Copyright &copy;{{ date('Y') }} <a href="{{ NINJA_WEB_URL }}" target="_blank">Straw Hat</a>. All rights reserved.</div>
+                <div class="copy">Copyright &copy;{{ date('Y') }} <a href="{{ NINJA_WEB_URL }}" target="_blank">i-invoice</a>. All rights reserved.</div>
             -->
             @endif
         </div><!-- .wrap -->
