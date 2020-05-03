@@ -584,7 +584,7 @@
 			self.export_formats = ko.computed(function() {
 				var options = [
 					new ExportFormatModel('csv', 'CSV'),
-					new ExportFormatModel('xlsx', 'XLSX'),
+					//new ExportFormatModel('xlsx', 'XLSX'),
 					//new ExportFormatModel('pdf', 'PDF'),
 				]
 
