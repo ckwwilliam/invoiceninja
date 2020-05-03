@@ -16,7 +16,7 @@
         <title>{{ trans('texts.client_portal') }}</title>
         <link href="{{ asset('ic_cloud_circle.png') }}" rel="shortcut icon" type="image/png">
     @else
-        <title>{{ isset($title) ? ($title . ' | i-invoice') : ('i-invoice | ' . trans('texts.app_title')) }}</title>
+        <title>{{ isset($title) ? ($title . ' | i-invoice') : ('i-invoice') }}</title>
         <meta name="description" content="{{ isset($description) ? $description : trans('texts.app_description') }}"/>
         <link href="{{ asset('favicon-v2.png') }}" rel="shortcut icon" type="image/png">
 
