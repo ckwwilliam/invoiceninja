@@ -222,14 +222,14 @@
     </div>
 
     @if ($client->showMap())
-
+	<!--  
         <iframe
           width="100%"
           height="200px"
           frameborder="0" style="border:0"
           src="https://www.google.com/maps/embed/v1/place?key={{ env('GOOGLE_MAPS_API_KEY') }}&q={!! e("{$client->address1} {$client->address2} {$client->city} {$client->state} {$client->postal_code} " . ($client->country ? $client->country->getName() : '')) !!}" allowfullscreen>
         </iframe>
-
+    -->
     @endif
 
 	<ul class="nav nav-tabs nav-justified">
