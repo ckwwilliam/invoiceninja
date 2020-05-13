@@ -37,14 +37,13 @@
                 <pre>sudo chown www-data:www-data {{ base_path('.env') }}</pre>
             </div>
         @endif
-        If you need help you can either post to our <a href="https://www.invoiceninja.com/forums/forum/support/" target="_blank">support forum</a> or email us at <a href="mailto:contact@invoiceninja.com" target="_blank">contact@invoiceninja.com</a>.
 
         @if (! env('PRECONFIGURED_INSTALL'))
         <p>
 <pre>-- Commands to create a MySQL database and user
-CREATE SCHEMA `ninja` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-CREATE USER 'ninja'@'localhost' IDENTIFIED BY 'ninja';
-GRANT ALL PRIVILEGES ON `ninja`.* TO 'ninja'@'localhost';
+CREATE SCHEMA `i-invoice` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE USER 'i-invoice'@'localhost' IDENTIFIED BY 'i-invoice';
+GRANT ALL PRIVILEGES ON `i-invoice`.* TO 'i-invoice'@'localhost';
 FLUSH PRIVILEGES;</pre>
         </p>
         @endif
