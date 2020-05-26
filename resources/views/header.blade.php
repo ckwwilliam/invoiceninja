@@ -266,12 +266,12 @@
         <span class="icon-bar"></span>
       </button>
       <a href="#" id="left-menu-toggle" class="menu-toggle" title="{{ trans('texts.toggle_navigation') }}">
-          <div class="navbar-brand">
-                <i class="fa fa-bars hide-phone" style="width:32px;padding-top:2px;float:left"></i>
-                <!-- 
+          <div class="navbar-brand" style="padding-top:5px;">
+                <i class="fa fa-bars hide-phone" style="width:32px;padding-top:10px;float:left"></i>
+
                 {{-- Per our license, please do not remove or modify this link. --}}
-                <img src="{{ asset('images/invoiceninja-logo.png') }}" width="193" height="25" style="float:left"/>
-                 -->
+                <img src="{{ asset('images/invoiceninja-logo.png') }}" height="40" style="float:left"/>
+
           </div>
       </a>
     </div>
