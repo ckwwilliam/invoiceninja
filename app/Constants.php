@@ -2,7 +2,7 @@
 
 if (! defined('APP_NAME')) {
     define('APP_NAME', env('APP_NAME', 'i-invoice'));
-    define('APP_DOMAIN', env('APP_DOMAIN', 'invoiceninja.com'));
+    define('APP_DOMAIN', env('APP_DOMAIN', 'i-invoice.net'));
     define('CONTACT_EMAIL', env('MAIL_FROM_ADDRESS'));
     define('CONTACT_NAME', env('MAIL_FROM_NAME'));
     define('SITE_URL', env('APP_URL'));
@@ -604,7 +604,7 @@ if (! defined('APP_NAME')) {
     define('WEPAY_CLIENT_SECRET', env('WEPAY_CLIENT_SECRET'));
     define('WEPAY_AUTO_UPDATE', env('WEPAY_AUTO_UPDATE', false));
     define('WEPAY_ENVIRONMENT', env('WEPAY_ENVIRONMENT', WEPAY_PRODUCTION));
-    define('WEPAY_THEME', env('WEPAY_THEME', '{"name":"Invoice Ninja","primary_color":"0b4d78","secondary_color":"0b4d78","background_color":"f8f8f8","button_color":"33b753"}'));
+    define('WEPAY_THEME', env('WEPAY_THEME', '{"name":"i-invoice","primary_color":"0b4d78","secondary_color":"0b4d78","background_color":"f8f8f8","button_color":"33b753"}'));
 
     define('SKYPE_CARD_RECEIPT', 'message/card.receipt');
     define('SKYPE_CARD_CAROUSEL', 'message/card.carousel');

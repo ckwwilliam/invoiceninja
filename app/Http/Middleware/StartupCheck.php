@@ -136,7 +136,7 @@ class StartupCheck
                         $params = [
                             'user_version' => NINJA_VERSION,
                             'latest_version' => $data->version,
-                            'releases_link' => link_to(RELEASES_URL, 'Invoice Ninja', ['target' => '_blank']),
+                            'releases_link' => link_to(RELEASES_URL, 'i-invoice', ['target' => '_blank']),
                         ];
                         Session::put('news_feed_id', NEW_VERSION_AVAILABLE);
                         Session::flash('news_feed_message', trans('texts.new_version_available', $params));

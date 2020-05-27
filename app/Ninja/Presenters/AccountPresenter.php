@@ -152,7 +152,7 @@ class AccountPresenter extends Presenter
         $data[] = $this->createRBit('email', 'user', ['email' => $user->email]);
         $data[] = $this->createRBit('phone', 'user', ['phone' => $user->phone]);
         $data[] = $this->createRBit('website_uri', 'user', ['uri' => $account->website]);
-        $data[] = $this->createRBit('external_account', 'partner_database', ['is_partner_account' => 'yes', 'account_type' => 'Invoice Ninja', 'create_time' => time()]);
+        $data[] = $this->createRBit('external_account', 'partner_database', ['is_partner_account' => 'yes', 'account_type' => 'i-invoice', 'create_time' => time()]);
 
         return $data;
     }

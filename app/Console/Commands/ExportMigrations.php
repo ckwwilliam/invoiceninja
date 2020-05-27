@@ -66,7 +66,7 @@ class ExportMigrations extends Command
 
         $output = fopen('php://output', 'w') or Utils::fatalError();
 
-        $fileName = "{$accountKey}-{$date}-invoiceninja";
+        $fileName = "{$accountKey}-{$date}-i-invoice";
 
         $data = [
             'company' => $this->getCompany(),

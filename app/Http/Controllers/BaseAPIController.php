@@ -23,7 +23,7 @@ use Utils;
  *     produces={"application/json"},
  *     @SWG\Info(
  *         version="1.0.0",
- *         title="Invoice Ninja API",
+ *         title="I-invoice API",
  *         description="An open-source invoicing and time-tracking app built with Laravel",
  *         termsOfService="",
  *         @SWG\Contact(
@@ -35,7 +35,7 @@ use Utils;
  *         )
  *     ),
  *     @SWG\ExternalDocumentation(
- *         description="Find out more about Invoice Ninja",
+ *         description="Find out more about I-invoice",
  *         url="https://www.invoiceninja.com"
  *     ),
  *     security={"api_key": {}},

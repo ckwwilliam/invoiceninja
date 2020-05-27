@@ -17,7 +17,7 @@
                     <label class="form-check-label" for="option1">
                         Hosted
                     </label>
-                    <p>If you chose 'hosted', we will migrate your data to official Invoice Ninja servers & take care of server handling.</p>
+                    <p>If you chose 'hosted', we will migrate your data to official i-invoice servers & take care of server handling.</p>
                 </div> -->
                     <div class="form-check">
                     <input class="form-check-input" type="radio" name="option" id="option2" value="1" checked">
