@@ -23,7 +23,7 @@ use Utils;
  *     produces={"application/json"},
  *     @SWG\Info(
  *         version="1.0.0",
- *         title="I-invoice API",
+ *         title="i-invoice API",
  *         description="An open-source invoicing and time-tracking app built with Laravel",
  *         termsOfService="",
  *         @SWG\Contact(
