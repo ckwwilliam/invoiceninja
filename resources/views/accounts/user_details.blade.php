@@ -70,7 +70,7 @@
                         ->help(trans('texts.dark_mode_help'))
                         ->text(trans('texts.enable'))
                         ->value(1)  !!}
-
+				<!--  
                 @if (Utils::isNinja())
                     @if ($user->referral_code)
                         {{ Former::setOption('capitalize_translations', false) }}
@@ -86,7 +86,7 @@
                                 ->value(1)  !!}
                     @endif
                 @endif
-
+                -->
                 </div>
             </div>
 
