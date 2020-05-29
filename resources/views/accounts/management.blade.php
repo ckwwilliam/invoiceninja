@@ -32,9 +32,11 @@
 	                                @if ($planDetails['plan'] == PLAN_ENTERPRISE)
 	                                    {{ trans('texts.min_to_max_users', ['min' => Utils::getMinNumUsers($planDetails['num_users']), 'max' => $planDetails['num_users']])}}
 	                                @endif
+	                                <!--  
 									@if ($portalLink)
 										- {{ link_to($portalLink, trans('texts.view_client_portal'), ['target' => '_blank']) }}
 									@endif
+									-->
 								@elseif(Utils::isNinjaProd())
 									{{ trans('texts.plan_free') }}
 								@else
@@ -63,10 +65,11 @@
 							{!! Former::plaintext('discount')
 									->value($account->company->present()->discountMessage) !!}
 						@endif
-
+						<!--  
 						@if (Utils::isNinjaProd() && Auth::user()->confirmed)
 							{!! Former::actions( Button::info(trans('texts.plan_change'))->large()->withAttributes(['onclick' => 'showChangePlan()'])->appendIcon(Icon::create('edit'))) !!}
 						@endif
+						-->
 					@else
 						@if ($planDetails)
 							<div class="form-group">
@@ -84,6 +87,7 @@
 								</div>
 							</div>
 						@endif
+						<!--  
 						@if (Utils::isNinjaProd())
 							@if (Auth::user()->confirmed)
 						   		{!! Former::actions( Button::success(trans('texts.plan_upgrade'))->large()->withAttributes(['onclick' => 'showChangePlan()'])->appendIcon(Icon::create('plus-sign'))) !!}
@@ -91,6 +95,7 @@
 						@elseif (!$account->hasFeature(FEATURE_WHITE_LABEL))
 						   {!! Former::actions( Button::success(trans('texts.white_label_button'))->large()->withAttributes(['onclick' => 'loadImages("#whiteLabelModal");$("#whiteLabelModal").modal("show");'])->appendIcon(Icon::create('plus-sign'))) !!}
 						@endif
+						-->
 					@endif
 				@endif
 

@@ -34,7 +34,7 @@
 @stop
 
 @section('content')
-
+	<!--  
 	@if (!Utils::isPro())
 		<div class="alert alert-warning" style="font-size:larger">
 			<center>
@@ -42,7 +42,7 @@
 			</center>
 		</div>
 	@endif
-
+    -->
     <div id='calendar'></div>
 
     <script type="text/javascript">

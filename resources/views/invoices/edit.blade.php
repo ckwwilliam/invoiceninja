@@ -575,13 +575,13 @@
 	</center>
 
 	@include('invoices.pdf', ['account' => Auth::user()->account, 'hide_pdf' => ! Auth::user()->account->live_preview])
-
+	<!--  
 	@if (!Auth::user()->account->isPro())
 		<div style="font-size:larger">
 			{!! trans('texts.pro_plan_remove_logo', ['link'=>'<a href="javascript:showUpgradeModal()">' . trans('texts.pro_plan_remove_logo_link') . '</a>']) !!}
 		</div>
 	@endif
-
+    -->
 	<div class="modal fade" id="clientModal" tabindex="-1" role="dialog" aria-labelledby="clientModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" data-bind="css: {'large-dialog': $root.showMore}">
 	    <div class="modal-content" style="background-color: #f8f8f8">

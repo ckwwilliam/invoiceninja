@@ -251,11 +251,11 @@
 @stop
 
 @section('body')
-
+<!--  
 @if (Utils::isNinjaProd() && ! Request::is('settings/account_management'))
   @include('partials.upgrade_modal')
 @endif
-
+-->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="height:60px;">
 
     <div class="navbar-header">
@@ -289,11 +289,13 @@
                 {!! Button::success(trans('texts.sign_up'))->withAttributes(array('id' => 'signUpButton', 'onclick' => 'showSignUp()', 'style' => 'max-width:100px;;overflow:hidden'))->small() !!} &nbsp;
               @endif
           @elseif (Utils::isNinjaProd() && (!Auth::user()->isPro() || Auth::user()->isTrial()))
+            <!--  
             @if (Auth::user()->account->company->hasActivePromo())
                 {!! Button::warning(trans('texts.plan_upgrade'))->withAttributes(array('onclick' => 'showUpgradeModal()', 'style' => 'max-width:100px;overflow:hidden'))->small() !!} &nbsp;
             @else
                 {!! Button::success(trans('texts.plan_upgrade'))->withAttributes(array('onclick' => 'showUpgradeModal()', 'style' => 'max-width:100px;overflow:hidden'))->small() !!} &nbsp;
             @endif
+            -->
           @endif
         @endif
 
@@ -517,14 +519,22 @@
 
               @if (Utils::isNinjaProd())
                 @if (Auth::check() && Auth::user()->hasActivePromo())
+                    <!--  
                     {!! trans('texts.promotion_footer', [
                             'link' => '<a href="javascript:showUpgradeModal()">' . trans('texts.click_here') . '</a>'
                         ]) !!}
+                    -->
+                    {!! trans('texts.promotion_footer') !!}                    
                 @elseif (Auth::check() && Auth::user()->isTrial())
+                  <!--  
                   {!! trans(Auth::user()->account->getCountTrialDaysLeft() == 0 ? 'texts.trial_footer_last_day' : 'texts.trial_footer', [
                           'count' => Auth::user()->account->getCountTrialDaysLeft(),
                           'link' => '<a href="javascript:showUpgradeModal()">' . trans('texts.click_here') . '</a>'
                       ]) !!}
+                  -->
+                  {!! trans(Auth::user()->account->getCountTrialDaysLeft() == 0 ? 'texts.trial_footer_last_day' : 'texts.trial_footer', [
+                          'count' => Auth::user()->account->getCountTrialDaysLeft()
+                      ]) !!}         
                 @endif
               @else
                 @include('partials.white_label', ['company' => Auth::user()->account->company])

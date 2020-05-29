@@ -18,7 +18,7 @@
 @stop
 
 @section('content')
-
+	<!--  
 	@if (!Utils::isPro())
 		<div class="alert alert-warning" style="font-size:larger;">
 			<center>
@@ -26,7 +26,7 @@
 			</center>
 		</div>
 	@endif
-
+    -->
 
 	<script type="text/javascript">
 

@@ -114,8 +114,10 @@
                             @endif
 
                             <div id="domainHelp" style="display:none">
+                                <!--  
                                 {!! Former::plaintext(' ')
                                             ->value('Using a custom domain requires an <a href="' . url('/settings/account_management?upgrade=true') . '" target="_blank">enterprise plan</a>') !!}
+                                -->
                             </div>
 
                             {!! Former::plaintext('preview')
