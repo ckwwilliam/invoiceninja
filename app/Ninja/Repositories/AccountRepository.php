@@ -66,6 +66,13 @@ class AccountRepository
         $account->company_id = $company->id;
         $account->currency_id = DEFAULT_CURRENCY;
         $account->enabled_modules = 0;
+        
+        //default value
+        $account->timezone_id = 90;
+        $account->date_format_id = 9;
+        $account->datetime_format_id = 9;
+        $account->financial_year_start = '2000-04-01';
+        
         // Set default language/currency based on IP
         // TODO Disabled until GDPR implications are understood
         /*
