@@ -291,7 +291,7 @@ if (! defined('APP_NAME')) {
     define('DEFAULT_DATE_PICKER_FORMAT', 'M d, yyyy');
     define('DEFAULT_DATETIME_FORMAT', 'F j, Y g:i a');
     define('DEFAULT_DATETIME_MOMENT_FORMAT', 'MMM D, YYYY h:mm:ss a');
-    define('DEFAULT_LOCALE', 'en');
+    define('DEFAULT_LOCALE', env('DEFAULT_LOCALE','zh_TW'));
     define('DEFAULT_MAP_ZOOM', 10);
 
     define('RESULT_SUCCESS', 'success');
