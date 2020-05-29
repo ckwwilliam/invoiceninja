@@ -97,8 +97,8 @@ class LoginController extends Controller
         if($user){
             $account = $user->account;
             $company = $account->company;
-            if($company && $company->plan && $company->plan_term){
-                $expires = DateTime::createFromFormat('Y-m-d', $company->plan_term);
+            if($company && $company->plan && $company->plan_expiry){
+                $expires = DateTime::createFromFormat('Y-m-d', $company->plan_expiry);
                 if($expires < date_create()){
                     session()->flash('error', trans('texts.plan_expired',['plan'=>trans('texts.plan_'.$company->plan)]));
                     return redirect()->to('login');
