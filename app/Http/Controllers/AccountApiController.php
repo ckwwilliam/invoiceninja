@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Log;
 use Response;
 use Socialite;
 use Utils;
+use DateTime;
 
 class AccountApiController extends BaseAPIController
 {
@@ -70,6 +71,25 @@ class AccountApiController extends BaseAPIController
             return $this->errorResponse(['message' => 'Invalid credentials'], 401);
         }
 
+        if($user){
+            $account = $user->account;
+            $company = $account->company;
+            if($company && $company->plan && $company->plan_expiry){
+                $expires = DateTime::createFromFormat('Y-m-d', $company->plan_expiry);
+                if($expires < date_create()){
+                    return $this->errorResponse(['message' => 'Your plan is expired'], 401);
+                }
+            }else if($company && $company->trial_plan && $company->trial_started){
+                $started = DateTime::createFromFormat('Y-m-d', $company->trial_started);
+                $expires = clone $started;
+                $expires->modify('+2 weeks');
+                if($expires < date_create()){
+                    return $this->errorResponse(['message' => 'Your trial plan is expired'], 401);
+                }
+            }
+        }
+        
+        
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             // TODO remove token_name check once legacy apps are deactivated
             if ($user->google_2fa_secret && strpos($request->token_name, 'invoice-ninja-') !== false) {
