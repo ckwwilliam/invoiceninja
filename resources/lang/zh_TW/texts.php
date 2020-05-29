@@ -2147,7 +2147,7 @@ $LANG = array(
     'this_year' => '今年',
 
     // Updated login screen
-    'ninja_tagline' => '建立、寄送、接受付款。',
+    'ninja_tagline' => '',
     'login_or_existing' => '或使用已連結的帳號登入。',
     'sign_up_now' => '立即登入',
     'not_a_member_yet' => '尚未成為會員?',
