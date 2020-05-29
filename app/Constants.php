@@ -280,7 +280,7 @@ if (! defined('APP_NAME')) {
     define('SESSION_LAST_REQUEST_PAGE', 'SESSION_LAST_REQUEST_PAGE');
     define('SESSION_LAST_REQUEST_TIME', 'SESSION_LAST_REQUEST_TIME');
 
-    define('CURRENCY_DOLLAR', 1);
+    define('CURRENCY_DOLLAR', 26);
     define('CURRENCY_EURO', 3);
 
     define('DEFAULT_TIMEZONE', 'US/Eastern');
