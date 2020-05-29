@@ -1,10 +1,12 @@
 <li class="nav-{{ $option }} {{ Request::is("{$option}*") ? 'active' : '' }}">
 
     @if ($option == 'settings')
+        <!--  
         <a type="button" class="btn btn-default btn-sm pull-right" title="{{ Utils::getReadableUrl(request()->path()) }}"
             href="{{ Utils::getDocsUrl(request()->path()) }}" target="_blank">
             <i class="fa fa-info-circle" style="width:20px"></i>
         </a>
+        -->
     @elseif ($option == 'reports')
         <a type="button" class="btn btn-default btn-sm pull-right" title="{{ trans('texts.calendar') }}"
             href="{{ url('/reports/calendar') }}">
