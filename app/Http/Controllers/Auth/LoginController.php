@@ -6,6 +6,8 @@ use Utils;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Account;
+use App\Models\Company;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Event;
@@ -15,6 +17,7 @@ use Str;
 use Cookie;
 use App\Events\UserLoggedIn;
 use App\Http\Requests\ValidateTwoFactorRequest;
+use DateTime;
 
 class LoginController extends Controller
 {
@@ -88,7 +91,30 @@ class LoginController extends Controller
             session()->flash('error', trans('texts.invalid_credentials'));
             return redirect()->to('login');
         }
-
+        
+        
+        
+        if($user){
+            $account = $user->account;
+            $company = $account->company;
+            if($company && $company->plan && $company->plan_term){
+                $expires = DateTime::createFromFormat('Y-m-d', $company->plan_term);
+                if($expires < date_create()){
+                    session()->flash('error', trans('texts.plan_expired',['plan'=>trans('texts.plan_'.$company->plan)]));
+                    return redirect()->to('login');
+                }
+            }else if($company && $company->trial_plan && $company->trial_started){
+                $started = DateTime::createFromFormat('Y-m-d', $company->trial_started);
+                $expires = clone $started;
+                $expires->modify('+2 weeks');
+                if($expires < date_create()){
+                    session()->flash('error', trans('texts.trial_expired',['plan'=>trans('texts.plan_'.$company->trial_plan)]));
+                    return redirect()->to('login');
+                }
+            }
+        }
+        
+        
         $response = self::login($request);
 
         if (auth()->check()) {
