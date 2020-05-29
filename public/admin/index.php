@@ -90,7 +90,7 @@ $sql = "select
             join accounts a on a.id = c.id
             join users u on u.account_id = a.id
             where trial_plan is not null
-            and u.is_admin = true";
+            and u.is_admin = true order by a.name, u.first_name, u.last_name";
 
 $result = mysqli_query($con, $sql);
 
