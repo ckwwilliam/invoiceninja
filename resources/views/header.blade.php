@@ -441,9 +441,11 @@
                 @include('partials.navigation_option', ['option' => 'reports'])
             @endif
             @include('partials.navigation_option', ['option' => 'settings'])
-            <!-- 
+            
             <li style="width:100%;">
                 <div class="nav-footer">
+                	{{ env('IINVOICE_VERSION') }}
+                	<!-- 
                     @if (Auth::user()->registered)
                         <a href="javascript:showContactUs()" title="{{ trans('texts.contact_us') }}">
                             <i class="fa fa-envelope"></i>
@@ -464,9 +466,10 @@
                     <a href="{{ url(SOCIAL_LINK_GITHUB) }}" target="_blank" title="GitHub">
                         <i class="fa fa-github-square"></i>
                     </a>
+                     -->
                 </div>
             </li>
-            -->
+           
         </ul>
     </div>
     <!-- /#left-sidebar-wrapper -->
@@ -516,7 +519,6 @@
           <br/>
           <div class="row">
             <div class="col-md-12">
-
               @if (Utils::isNinjaProd())
                 @if (Auth::check() && Auth::user()->hasActivePromo())
                     <!--  
