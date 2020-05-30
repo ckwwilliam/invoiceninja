@@ -36,7 +36,7 @@ use Utils;
  *     ),
  *     @SWG\ExternalDocumentation(
  *         description="Find out more about I-invoice",
- *         url="https://www.invoiceninja.com"
+ *         url="https://www.i-invoice.net"
  *     ),
  *     security={"api_key": {}},
  *     @SWG\SecurityScheme(

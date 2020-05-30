@@ -30,7 +30,7 @@ To archive an existing token, click on the gray Select button in the Action colu
 Documentation
 ^^^^^^^^^^^^^
 
-Need some extra help? Click on the gray Documentation button directly above the API Tokens table, and you'll be redirected to https://www.invoiceninja.com/api-documentation/. Here, you can read all about using API documentation in your Invoice Ninja account.
+Need some extra help? Click on the gray Documentation button directly above the API Tokens table, and you'll be redirected to https://www.i-invoice.net/api-documentation/. Here, you can read all about using API documentation in your Invoice Ninja account.
 
 Zapier
 """"""

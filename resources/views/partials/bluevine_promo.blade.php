@@ -23,7 +23,7 @@
                 </div>
                 <div class="pull-right">
                   <br/>
-                  <a class='btn btn-primary btn-sm' href='https://www.invoiceninja.com/blue-vine-invoice-factoring/' target="_blank">{{ trans('texts.learn_more') }}</a>
+                  <a class='btn btn-primary btn-sm' href='https://www.i-invoice.net/blue-vine-invoice-factoring/' target="_blank">{{ trans('texts.learn_more') }}</a>
                 </div>
                 <div class="clearfix"></div>
                 <h3>{!! trans('texts.bluevine_create_account') !!}</h3>
