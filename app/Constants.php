@@ -283,10 +283,10 @@ if (! defined('APP_NAME')) {
     define('CURRENCY_DOLLAR', 26);
     define('CURRENCY_EURO', 3);
 
-    define('DEFAULT_TIMEZONE', 'US/Eastern');
-    define('DEFAULT_COUNTRY', 840); // United Stated
+    define('DEFAULT_TIMEZONE', 'Asia/Hong Kong');
+    define('DEFAULT_COUNTRY', 852); // Hong Kong
     define('DEFAULT_CURRENCY', CURRENCY_DOLLAR);
-    define('DEFAULT_LANGUAGE', 1); // English
+    define('DEFAULT_LANGUAGE', 28); // Chinese
     define('DEFAULT_DATE_FORMAT', 'M j, Y');
     define('DEFAULT_DATE_PICKER_FORMAT', 'M d, yyyy');
     define('DEFAULT_DATETIME_FORMAT', 'F j, Y g:i a');

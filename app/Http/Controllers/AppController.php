@@ -84,7 +84,7 @@ class AppController extends BaseController
 
         $_ENV['APP_ENV'] = 'production';
         $_ENV['APP_DEBUG'] = $app['debug'];
-        $_ENV['APP_LOCALE'] = 'en';
+        $_ENV['APP_LOCALE'] = 'zh_TW';
         $_ENV['APP_URL'] = $app['url'];
         $_ENV['APP_KEY'] = $app['key'];
         $_ENV['APP_CIPHER'] = env('APP_CIPHER', 'AES-256-CBC');

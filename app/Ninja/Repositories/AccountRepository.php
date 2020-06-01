@@ -72,7 +72,7 @@ class AccountRepository
         $account->date_format_id = 9;
         $account->datetime_format_id = 9;
         $account->financial_year_start = '2000-04-01';
-        
+        $account->language_id=28;
         // Set default language/currency based on IP
         // TODO Disabled until GDPR implications are understood
         /*

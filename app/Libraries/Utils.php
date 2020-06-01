@@ -265,7 +265,7 @@ class Utils
     {
         $parts = explode('_', App::getLocale());
 
-        return count($parts) ? $parts[0] : 'en';
+        return count($parts) ? $parts[0] : 'zh_TW';
     }
 
     public static function getUserType()
