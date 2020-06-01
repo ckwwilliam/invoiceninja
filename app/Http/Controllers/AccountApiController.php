@@ -74,8 +74,8 @@ class AccountApiController extends BaseAPIController
         if($user){
             $account = $user->account;
             $company = $account->company;
-            if($company && $company->plan && $company->plan_expiry){
-                $expires = DateTime::createFromFormat('Y-m-d', $company->plan_expiry);
+            if($company && $company->plan && $company->plan_expires){
+                $expires = DateTime::createFromFormat('Y-m-d', $company->plan_expires);
                 if($expires < date_create()){
                     return $this->errorResponse(['message' => 'Your plan is expired'], 401);
                 }
