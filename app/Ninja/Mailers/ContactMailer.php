@@ -206,7 +206,7 @@ class ContactMailer extends Mailer
             'documents' => $extra['documentStrings'],
             'notes' => $reminder,
             'bccEmail' => $isFirst ? $account->getBccEmail() : false,
-            'fromEmail' => $account->getFromEmail(),
+            'fromEmail' => $account->work_email,//$account->getFromEmail(),
             'proposal' => $proposal,
             'tag' => $account->account_key,
         ];
