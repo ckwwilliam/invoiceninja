@@ -7,11 +7,12 @@ if (!isset($_SERVER['PHP_AUTH_USER']) || $_SERVER['PHP_AUTH_USER']!="invoiceadmi
 }
 
 
-$con=mysqli_connect("localhost","i-invoice","i-invoice","i-invoice");
+$con=mysqli_connect("i-invoice.c1azhxaf1zub.ap-east-1.rds.amazonaws.com","admin","william123$$$","invoice");
 if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
     exit;
 }
+
 
 if(isset($_POST["action"]) && $_POST["action"]=="update"){
     
@@ -90,8 +91,17 @@ $sql = "select
             join accounts a on a.id = c.id
             join users u on u.account_id = a.id
             where trial_plan is not null
-            and u.is_admin = true order by a.name, u.first_name, u.last_name";
+            and u.is_admin = true ";
 
+if(isset($_GET["keywords"]) && $_GET["keywords"]!=""){
+    $sql .= " and (";
+    $sql .= " LOWER(a.name) like LOWER('%".$_GET["keywords"]."%') ";
+    $sql .= " OR LOWER(u.email) like LOWER('%".$_GET["keywords"]."%') ";
+    $sql .= " OR LOWER(u.first_name) like LOWER('%".$_GET["keywords"]."%') ";
+    $sql .= " OR LOWER(u.last_name) like LOWER('%".$_GET["keywords"]."%') ";
+    $sql .= " )";
+}
+$sql .= " order by a.name, u.first_name, u.last_name";
 $result = mysqli_query($con, $sql);
 
 
@@ -106,6 +116,10 @@ $result = mysqli_query($con, $sql);
 
 <h3>Existed Accounts</h3>
 <?php if(isset($_GET['result'])) { echo $_GET['result']; } ?>
+<form action="index.php" method="GET">
+	<input type="text" name="keywords" value="<?php if(isset($_GET["keywords"])){ echo $_GET["keywords"]; } ?>" />
+	<input type="submit" value="Search"/>
+</form>
 <table width="100%" border="1">
 	<tr>
 		<th>Company Name</th>
