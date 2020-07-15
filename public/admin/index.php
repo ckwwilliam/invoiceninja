@@ -88,9 +88,9 @@ $sql = "select
                     c.trial_started,
                     DATE_ADD(c.trial_started, INTERVAL 14 DAY) as trial_ended
             from companies c
-            join accounts a on a.id = c.id
+            join accounts a on a.company_id = c.id
             join users u on u.account_id = a.id
-            where trial_plan is not null
+            where 1=1 and u.deleted_at is null and u.email is not null
             and u.is_admin = true ";
 
 if(isset($_GET["keywords"]) && $_GET["keywords"]!=""){
