@@ -18,10 +18,10 @@ hr.green {
 /****** HEADER ********************************************************************/
 
 .row.header {
-    background: #3c3b3b; /* Old browsers */
-    background: -moz-linear-gradient(top, #3c3b3b 0%, #2f2c2c 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #3c3b3b 0%, #2f2c2c 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #3c3b3b 0%, #2f2c2c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    /*background: #3c3b3b; /* Old browsers */
+    /* background: -moz-linear-gradient(top, #3c3b3b 0%, #2f2c2c 100%); /* FF3.6-15 */
+    /* background: -webkit-linear-gradient(top, #3c3b3b 0%, #2f2c2c 100%); /* Chrome10-25,Safari5.1-6 */
+    /* background: linear-gradient(to bottom, #3c3b3b 0%, #2f2c2c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c3b3b', endColorstr='#2f2c2c', GradientType=0); /* IE6-9 */
     padding: 30px 55px;
     margin-bottom: 60px;
