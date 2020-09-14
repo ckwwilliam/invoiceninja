@@ -19,7 +19,7 @@
         <div class="container-fluid">
             <div class="row header">
                 <div class="col-md-6 col-xs-12 text-center">
-                	<a href="{{ URL::to('/') }}">
+                	<a href="https://www.i-invoice.net">
                 		<img width="231" src="{{ asset('images/invoiceninja-logox53.png') }}"/>
                 	</a>
                 </div>
