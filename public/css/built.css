@@ -15871,7 +15871,7 @@ thead th {
 .menu-toggle:hover,
 .navbar-header:hover i,
 .sidebar-nav a.btn i.fa {
-	color: #3276b1!important
+	/*color: #3276b1!important*/
 }
 
 @font-face {
