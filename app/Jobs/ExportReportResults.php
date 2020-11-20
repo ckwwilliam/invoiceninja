@@ -76,7 +76,9 @@ class ExportReportResults extends Job
                 $summary[] = $tmp;
             }
         }
-
+        header("Content-Encoding: UTF-8");
+        header("Content-type: text/csv; charset=UTF-8");
+        echo "\xEF\xBB\xBF";
         return Excel::create($filename, function($excel) use($report, $data, $reportType, $format, $summary) {
 
             $excel->sheet(trans("texts.$reportType"), function($sheet) use($report, $data, $format, $summary) {
@@ -124,7 +126,7 @@ class ExportReportResults extends Job
                     $sheet->setAutoSize(true);
                 });
             }
-
+            
         });
     }
 }
