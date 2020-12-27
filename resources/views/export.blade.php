@@ -1,5 +1,7 @@
 <html>
-
+<header>
+<meta content="text/csv; charset=UTF-8" http-equiv="Content-Type" />
+</header>
     <tr>
         <td>{{ $title }}</td>
     </tr>

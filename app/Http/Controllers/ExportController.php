@@ -103,7 +103,9 @@ class ExportController extends BaseController
     private function returnCSV($request, $fileName)
     {
         $data = $this->getData($request);
-
+        header("Content-Encoding: UTF-8");
+        header("Content-type: text/csv; charset=UTF-8");
+        echo "\xEF\xBB\xBF";
         return Excel::create($fileName, function ($excel) use ($data) {
             $excel->sheet('', function ($sheet) use ($data) {
                 $sheet->loadView('export', $data);
