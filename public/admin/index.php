@@ -6,13 +6,124 @@ if (!isset($_SERVER['PHP_AUTH_USER']) || $_SERVER['PHP_AUTH_USER']!="invoiceadmi
     exit;
 }
 
+function str_random($length) {
+    $include_chars = "0123456789abcdefghijklmnopqrstuvwxyz";
+    /* Uncomment below to include symbols */
+    /* $include_chars .= "[{(!@#$%^/&*_+;?\:)}]"; */
+    $charLength = strlen($include_chars);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $include_chars [rand(0, $charLength - 1)];
+    }
+    return $randomString;
+}
+
 
 $con=mysqli_connect("i-invoice.c1azhxaf1zub.ap-east-1.rds.amazonaws.com","admin","william123$$$","invoice");
+//$con=mysqli_connect("localhost","i-invoice","i-invoice","i-invoice");
 if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
     exit;
 }
 
+if(isset($_POST["action"]) && $_POST["action"]=="batch_insert"){
+    $users = $_POST["users"];
+    foreach($users as $index=>$user){
+        if($user["email"]!=""){
+            $email = $user["email"];
+            $password = $user["password"];
+            echo "Email: ".$email;
+            $isValid = true;
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                echo " - Invalid email format <br />";
+                $isValid = false;
+            }
+            echo "<div style='color:red;'>";
+
+            $sql = "select count(*) total_users from users where username = '".$email."' ";
+            
+            $result1 = mysqli_query($con, $sql);
+            $row1 = mysqli_fetch_assoc($result1);
+            if($row1["total_users"] > 0){
+                echo " - Email is already existed in DB <br />";
+                $isValid = false;
+            }
+            echo "</div>";
+            
+            if(!$isValid){
+                continue;
+            }
+            
+            mysqli_query($con, "START TRANSACTION");
+            try{
+                
+                //echo "insert companies start<br />";
+                if(mysqli_query($con, "INSERT INTO companies (trial_started, trial_plan, created_at, updated_at, discount) values (CURDATE(), 'pro', NOW(), NOW(), 0)")){
+                    //echo "insert companies success <br />";
+                } else {
+                   //echo "insert companies failed <br />";
+                }
+                $company_id = mysqli_insert_id($con);
+                //echo "company_id = ".$company_id."<br />";
+                
+                $ip = $_SERVER['REMOTE_ADDR'];
+                //echo "ip = ".$ip."<br />";
+                
+                $account_key = str_random(32);
+                //echo "account_key = ".$account_key."<br />";
+                
+                //echo "insert accounts start<br />";
+                $sql ="INSERT INTO accounts (timezone_id, date_format_id, datetime_format_id, currency_id, created_at, updated_at, ip, account_key, language_id, header_font_id, body_font_id, company_id, financial_year_start, enabled_modules, all_pages_footer, all_pages_header, show_currency_code, logo_width, logo_height, logo_size, 	start_of_week, tax_rate1, tax_rate2) values (90, 9, 9, 26, NOW(), NOW(), '".$ip."', '".$account_key."', 28, 18, 18, ".$company_id.", '2000-04-01', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)";
+                //echo $sql."<br />";
+                if(mysqli_query($con, $sql)){
+                    //echo "insert accounts success<br />";
+                }else{
+                    //echo "insert accounts failed<br />";
+                }
+
+                $account_id = mysqli_insert_id($con);
+                //echo "account_id = ".$account_id."<br />";
+
+                
+                $password = '$2y$10$86q8mmi2QDgj7Pu4mEudde17DOu/2DPr4TvmRjAgnV5xnsuG9IPvO';
+                //echo "password = ".$password."<br />";
+                
+                $confirmation_code = str_random(32);
+                //echo "confirmation_code = ".$confirmation_code."<br />";
+               
+                $remember_token = str_random(60);
+                //echo "remember_token = ".$remember_token."<br />";
+                
+                //echo "insert users start<br />";
+                $sql = "INSERT INTO users (account_id, created_at, updated_at, username, email, password, confirmation_code, registered, confirmed, remember_token, accepted_terms_version, accepted_terms_timestamp, accepted_terms_ip, permissions) values (".$account_id.", NOW(), NOW(),'".$email."','".$email."','".$password."','".$confirmation_code."',1,1,'".$remember_token."', '1.0.1', NOW(), '".$ip."','')";
+                //echo $sql."<br />";;
+                if(mysqli_query($con, $sql)){
+                    //echo "insert users success<br />";
+                }else{
+                    //echo "insert users failed<br />";
+                }
+                
+                
+                mysqli_query($con, "COMMIT");
+                
+                //echo "insert account_email_setting start<br />";
+                $sql = "INSERT INTO account_email_settings (account_id, created_at, updated_at, email_subject_invoice, email_subject_quote ,email_subject_payment,email_template_invoice,email_template_quote,email_template_payment,email_subject_reminder1,email_subject_reminder2,email_subject_reminder3,email_template_reminder1,email_template_reminder2,email_template_reminder3) values (".$account_id.", NOW(), NOW(),'', '','','','','','','','','','','')";
+                //echo $sql."<br />";
+                if(mysqli_query($con, $sql)){
+                    //echo "insert account_email_setting success<br />";
+                }else{
+                    //echo "insert account_email_setting failed<br />";
+                }
+                   
+                echo " - insert account :".$email. " Success <br />";
+
+            }catch(Exception $e){
+                mysqli_query($con, "ROLLBACK");
+            }
+
+        }
+    }
+}
 
 if(isset($_POST["action"]) && $_POST["action"]=="update"){
     
@@ -113,6 +224,24 @@ $result = mysqli_query($con, $sql);
 <a href="https://app.i-invoice.net/invoice_now?sign_up=true" target="_blank">Click Here</a> to create trial user for company <br />
 *Notes: Refresh this page after create the trial account
 </p>
+
+<p>Or you may use batch insert to create accounts</p>
+<form action="index.php" method="POST">
+    <table width="200" border="1">
+        <tr>
+    		<th>Email</th>
+    		<th>Password</th>
+    	</tr>
+    	<?php for ($i=0;$i<10;$i++) { ?>
+    	<tr>
+    		<td><input type="text" name="users[<?php echo $i; ?>][email]" value="<?php if(isset($_POST["users"]) && isset($_POST["users"][$i])) { echo $_POST["users"][$i]["email"]; } ?>" /></td>
+    		<td>N36gy8r23</td>
+    	</tr>
+    	<?php } ?>
+    </table>
+    <input type="hidden" name="action" value="batch_insert" />
+    <input type="submit" value="Batch Insert"/>
+</form>
 
 <h3>Existed Accounts</h3>
 <?php if(isset($_GET['result'])) { echo $_GET['result']; } ?>
