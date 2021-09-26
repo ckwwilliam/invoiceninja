@@ -499,7 +499,7 @@ class AccountRepository
             $client->public_id = $account->id;
             $client->account_id = $ninjaAccount->id;
             $client->user_id = $ninjaUser->id;
-            $client->currency_id = 1;
+            $client->currency_id = 26;
             foreach (['name', 'address1', 'address2', 'city', 'state', 'postal_code', 'country_id', 'work_phone', 'language_id', 'vat_number'] as $field) {
                 $client->$field = $account->$field;
             }

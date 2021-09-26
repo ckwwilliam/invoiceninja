@@ -1024,8 +1024,8 @@ $LANG = array(
     'show_currency_code' => 'Currency Code',
     'free_year_message' => 'Your account has been upgraded to the pro plan for one year at no cost.',
     'trial_message' => 'Your account will receive a free two week trial of our pro plan.',
-    'trial_footer' => 'Your free pro plan trial lasts :count more days.',
-    'trial_footer_last_day' => 'This is the last day of your free pro plan trial.',
+    'trial_footer' => 'Your free pro plan trial lasts :count more days, :link to upgrade now.',
+    'trial_footer_last_day' => 'This is the last day of your free pro plan trial, :link to upgrade now.',
     'trial_call_to_action' => 'Start Free Trial',
     'trial_success' => 'Successfully enabled two week free pro plan trial',
     'overdue' => 'Overdue',
@@ -1954,7 +1954,7 @@ $LANG = array(
     'enterprise_upgrade_feature2' => 'Attach 3rd party files to invoices & expenses',
     'much_more' => 'Much More!',
     'all_pro_fetaures' => 'Plus all pro features!',
-
+    'contact_us_for_register' => 'Welcome to contact us through our email cs@i-invoice.net for registration',
     'currency_symbol' => 'Symbol',
     'currency_code' => 'Code',
 

@@ -15,9 +15,9 @@
   <h1>{{ trans('texts.upgrade_for_features') }}</h1>
   <h4 onclick="updateUpgradePrices()">
     <label for="plan_term_month" class="radio-inline">
-      <input value="month" id="plan_term_month" type="radio" name="plan_term" checked>Monthly</label>
+      <input value="month" id="plan_term_month" type="radio" name="plan_term" checked>{{ trans('texts.freq_monthly') }}</label>
     <label for="plan_term_year" class="radio-inline">
-      <input value="year" id="plan_term_year" type="radio" name="plan_term">Annually</label>
+      <input value="year" id="plan_term_year" type="radio" name="plan_term">{{ trans('texts.freq_annually') }}</label>
   </h4>
   @if (Auth::user()->account->company->hasActivePromo())
     <h4>{{ Auth::user()->account->company->present()->promoMessage }}</h4><br/>
@@ -42,20 +42,35 @@
   <h2>{{ trans('texts.plan_enterprise') }}</h2>
   <p class="subhead">{{ trans('texts.pay_annually_discount') }}</p>
   <img width="65" src="{{ asset('images/pro_plan/border.png') }}"/>
-  <h3>$<span id="upgrade_enterprise_price">{{ PLAN_PRICE_ENTERPRISE_MONTHLY_2 }}</span> <span class="upgrade_frequency">/ {{ trans('texts.plan_term_month') }}</span></h3>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <h4>
+    {{ trans('texts.contact_us_for_register') }}
+    <!--
+    $<span id="upgrade_enterprise_price">{{ PLAN_PRICE_ENTERPRISE_MONTHLY_2 }}</span> <span class="upgrade_frequency">/ {{ trans('texts.plan_term_month') }}</span>
+  -->
+  </h4>
+  <!--
   <select name="num_users" id="upgrade_num_users" onchange="updateUpgradePrices()">
       <option value="2">1 to 2 {{ trans('texts.users') }}</option>
       <option value="5">3 to 5 {{ trans('texts.users') }}</option>
       <option value="10">6 to 10 {{ trans('texts.users') }}</option>
       <option value="20">11 to 20 {{ trans('texts.users') }}</option>
   </select>
+  -->
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
   <p>&nbsp;</p>
   <ul>
     <li>{{ trans('texts.enterprise_upgrade_feature1') }}</li>
     <li>{{ trans('texts.enterprise_upgrade_feature2') }}</li>
     <li>{{ trans('texts.all_pro_fetaures') }}</li>
+    <li></li>
   </ul>
+  
+  <!--
   {!! Button::success(trans('texts.go_enterprise'))->withAttributes(['onclick' => 'submitUpgradeForm("enterprise")'])->large() !!}
+  -->
 </div>
 </div>
 </div>

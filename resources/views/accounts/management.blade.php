@@ -123,16 +123,27 @@
 			            <div class="panel-body">
 
 							@if ($planDetails && $planDetails['active'])
+							<!--
     							{!! Former::select('plan')
                                     ->onchange('onPlanChange()')
                                     ->addOption(trans('texts.plan_free'), PLAN_FREE)
     								->addOption(trans('texts.plan_pro'), PLAN_PRO)
                                     ->addOption(trans('texts.plan_enterprise'), PLAN_ENTERPRISE) !!}
+							-->
+							{!! Former::select('plan')
+								->onchange('onPlanChange()')
+								->addOption(trans('texts.plan_free'), PLAN_FREE)
+								->addOption(trans('texts.plan_pro'), PLAN_PRO) !!}							
 							@else
-    							{!! Former::select('plan')
+							<!--
+								{!! Former::select('plan')
                                     ->onchange('onPlanChange()')
                                     ->addOption(trans('texts.plan_pro'), PLAN_PRO)
-    								->addOption(trans('texts.plan_enterprise'), PLAN_ENTERPRISE) !!}
+									->addOption(trans('texts.plan_enterprise'), PLAN_ENTERPRISE) !!}
+							-->
+								{!! Former::select('plan')
+                                    ->onchange('onPlanChange()')
+                                    ->addOption(trans('texts.plan_pro'), PLAN_PRO) !!}
 							@endif
 
                             <div id="numUsersDiv">

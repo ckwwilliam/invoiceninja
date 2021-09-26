@@ -42,7 +42,7 @@
                     ->help(trans('texts.translate_app', ['link' => link_to(TRANSIFEX_URL, 'Transifex.com', ['target' => '_blank'])])) !!}
                 -->    
                 {!! Former::select('language_id')->addOption('','')
-                    ->fromQuery($languages, 'name', 'id') !!}                    
+                    ->fromQuery(array(array('id'=>1,'name'=>'English'),array('id'=>28,'name'=>'繁體中文')), 'name', 'id') !!}                    
                 <br/>&nbsp;<br/>
 
                 {!! Former::select('timezone_id')->addOption('','')
